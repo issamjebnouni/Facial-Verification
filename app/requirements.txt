@@ -3,5 +3,4 @@ tensorflow
 Pillow
 mtcnn
 requests
-opencv-python-headless
-
+opencv-python
