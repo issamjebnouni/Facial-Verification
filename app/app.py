@@ -45,7 +45,7 @@ if selected_option == "Webcam":
                 with st.status("Extracting face..."):
                     face = extract_face(cv2_img)
                 im = Image.fromarray(face[:,:,::-1])
-                im.save("../application_data/input_image/input_image.jpg")
+                im.save("application_data/input_image/input_image.jpg")
                 with st.status("Running verification model..."):
                     _, verified = verify(siamese_model, detection_threshold, verification_threshold)
                 
@@ -56,9 +56,9 @@ if selected_option == "Webcam":
 
                 with col2:
                     st.info("This is what the machine learning model takes as input when making a prediction:")
-                    st.image(load_image("../application_data/input_image/input_image.jpg"))
+                    st.image(load_image("application_data/input_image/input_image.jpg"))
                     st.info("This picture is then compared to 50 reference images of this kind:")
-                    st.image(load_image("verification_faces.jpg"))
+                    st.image(load_image("app/verification_faces.jpg"))
             except:
                 st.error("No face detected in the image. Please try another image.")
                  
@@ -74,7 +74,7 @@ if selected_option == "Local file":
                 with st.status("Extracting face..."):
                     face = extract_face(image)
                 im = Image.fromarray(face)
-                im.save("../application_data/input_image/input_image.jpg")
+                im.save("application_data/input_image/input_image.jpg")
                 with st.status("Running verification model..."):
                     _, verified = verify(siamese_model, detection_threshold, verification_threshold)
                 if verified:
@@ -83,16 +83,16 @@ if selected_option == "Local file":
                     st.error("Face not recognized. Access denied.")
                 with col2:
                     st.info("This is what the machine learning model takes as input when making a prediction:")
-                    st.image(load_image("../application_data/input_image/input_image.jpg"))
+                    st.image(load_image("application_data/input_image/input_image.jpg"))
                     st.info("This picture is then compared to 50 reference images of this kind:")
-                    st.image(load_image("verification_faces.jpg"))
+                    st.image(load_image("app/verification_faces.jpg"))
                     
             except:
                 st.error("No face detected in the image. Please try another image.")
             
 if selected_option == "Testing image":
     with col1:
-        im = Image.open("issam.jpg")
+        im = Image.open("app/issam.jpg")
         image = np.array(im)
         st.image(image, width=400, caption="Testing image")
         
@@ -100,7 +100,7 @@ if selected_option == "Testing image":
             with st.status("Extracting face..."):
                 face = extract_face(image)
             im = Image.fromarray(face)
-            im.save("../application_data/input_image/input_image.jpg")
+            im.save("application_data/input_image/input_image.jpg")
             with st.status("Running verification model..."):
                 _, verified = verify(siamese_model, detection_threshold, verification_threshold)
             if verified:
@@ -108,9 +108,9 @@ if selected_option == "Testing image":
             else:
                 st.error("Face not recognized. Access denied.")
             st.info("This is what the machine learning model takes as input when making a prediction:")
-            st.image(load_image("../application_data/input_image/input_image.jpg"))
+            st.image(load_image("application_data/input_image/input_image.jpg"))
             st.info("This picture is then compared to 50 reference images of this kind:")
-            st.image(load_image("verification_faces.jpg"))
+            st.image(load_image("app/verification_faces.jpg"))
 
 if selected_option == "URL":
     with col1:
@@ -125,7 +125,7 @@ if selected_option == "URL":
                 with st.status("Extracting face..."):
                     face = extract_face(image_array)
                 im = Image.fromarray(face)
-                im.save("../application_data/input_image/input_image.jpg")
+                im.save("application_data/input_image/input_image.jpg")
                 with st.status("Running verification model..."):
                     _, verified = verify(siamese_model, detection_threshold, verification_threshold)
                 if verified:
@@ -134,9 +134,9 @@ if selected_option == "URL":
                     st.error("Face not recognized. Access denied.")
                 with col2:
                     st.info("This is what the machine learning model takes as input when making a prediction:")
-                    st.image(load_image("../application_data/input_image/input_image.jpg"))
+                    st.image(load_image("application_data/input_image/input_image.jpg"))
                     st.info("This picture is then compared to 50 reference images of this kind:")
-                    st.image(load_image("verification_faces.jpg"))
+                    st.image(load_image("app/verification_faces.jpg"))
                     
             except:
                 st.error("No face detected in the image. Please try another image.")
