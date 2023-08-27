@@ -33,8 +33,8 @@ def extract_face(img):
 
 def verify(model, detection_threshold, verification_threshold):
   results = []
-  inp_img = "../application_data/input_image/input_image.jpg"
-  verif_folder = "../application_data/verification_images"
+  inp_img = "application_data/input_image/input_image.jpg"
+  verif_folder = "application_data/verification_images"
   for image in os.listdir(verif_folder):
     input_img = preprocess(inp_img)
     validation_img = preprocess(os.path.join(verif_folder,image))
