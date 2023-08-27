@@ -11,7 +11,7 @@ class L1Dist(Layer):
 
 def load_model():
 
-    siamese_model = tf.keras.models.load_model("../siamesemodel.h5",
+    siamese_model = tf.keras.models.load_model("siamesemodel.h5",
                                             custom_objects={'L1Dist':L1Dist, 'BinaryCrossentropy':tf.losses.BinaryCrossentropy()}) 
     
     return siamese_model
