@@ -18,7 +18,7 @@ st.title("Facial Verification Application")
 #Setup the sidebar
 with st.sidebar:
     st.title("FaceID")
-    st.image(load_image("logo.png"), width=150,)
+    st.image(load_image("app/logo.png"), width=150,)
     st.header("Input:")
     options = ["Webcam", "Local file", "URL", "Testing image"]
     selected_option = st.selectbox("", options)
