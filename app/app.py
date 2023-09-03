@@ -2,6 +2,7 @@ import streamlit as st
 import cv2
 import numpy as np
 from PIL import Image
+from pathlib import Path
 import requests
 import io
 from utils import  load_image, extract_face, verify
@@ -12,6 +13,12 @@ st.set_page_config(
     page_title="FaceID",
     page_icon="🗿",
     layout="wide")
+
+current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
+css_file = current_dir.parent / "styles" / "main.css"
+
+with open(css_file) as f:
+    st.markdown("<style>{}</style>".format(f.read()), unsafe_allow_html=True)
 
 st.title("Facial Verification Application")
 
