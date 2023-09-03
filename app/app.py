@@ -65,7 +65,7 @@ if selected_option == "Webcam":
 if selected_option == "Local file":
 
     with col1:
-        uploaded_img = st.file_uploader("Choose an image...", type="jpg", label_visibility="hidden")
+        uploaded_img = st.file_uploader("Choose an image...", type=["jpg", "png"], label_visibility="hidden")
 
         if uploaded_img is not None:
             im = Image.open(uploaded_img)
